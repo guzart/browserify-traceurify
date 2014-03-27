@@ -1,6 +1,6 @@
 {
   "name": "traceurify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Traceur transform for Browserify",
   "main": "index.js",
   "repository": {
