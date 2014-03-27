@@ -37,6 +37,6 @@ traceurify
       return bundler
         .bundle({ debug: true })
         .pipe(source('app.js'))
-        .pipe(buffer('app.js'))
+        .pipe(buffer())
         .pipe(gulp.dest('.tmp'));
     });
