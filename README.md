@@ -28,7 +28,6 @@ traceurify
     var browserify  = require('browserify');
     var traceurify  = require('traceurify');
     var source      = require('vinyl-source-stream');
-    var buffer      = require('vinyl-buffer');
 
     gulp.task('default', function () {
       var bundler = browserify('./app/main.js');
@@ -37,6 +36,36 @@ traceurify
       return bundler
         .bundle({ debug: true })
         .pipe(source('app.js'))
-        .pipe(buffer())
         .pipe(gulp.dest('.tmp'));
     });
+
+## Options
+
+All options are passed to the `traceur.compile` method, for more information on the options look
+at the traceur documentation.
+
+Here is a list of some of the options:
+
+  * annotations
+  * arrayComprehension
+  * arrowFunctions
+  * asyncFunctions
+  * blockBinding
+  * classes
+  * commentCallback
+  * computedPropertyNames
+  * debug
+  * defaultParameters
+  * destructuring
+  * forOf
+  * freeVariableChecker
+  * modules
+  * numericLiterals
+  * restParameters
+  * sourceMaps
+  * spread
+  * symbols
+  * templateLiterals
+  * typeAssertions
+  * types
+  * validate
