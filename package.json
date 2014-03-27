@@ -1,0 +1,28 @@
+{
+  "name": "traceurify",
+  "version": "0.0.3",
+  "description": "Traceur transform for Browserify",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/guzart/browserify-traceurify.git"
+  },
+  "keywords": [
+    "traceur",
+    "ES6",
+    "transpiler",
+    "browserify",
+    "browserify-transform"
+  ],
+  "author": "Arturo Guzman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guzart/browserify-traceurify/issues"
+  },
+  "homepage": "https://github.com/guzart/browserify-traceurify",
+  "dependencies": {
+    "through": "^2.3.4",
+    "traceur": "0.0.32",
+    "lodash": "^2.4.1"
+  }
+}
