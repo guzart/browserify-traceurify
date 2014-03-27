@@ -7,30 +7,39 @@ var lodash  = require('lodash');
 
 var jsRegex = new RegExp('\\.js$', 'i');
 
-function traceurify(options) {
-    return function (file) {
-        if (!isJavascript(file)) { return through(); }
+function traceurify(file) {
+    if (typeof file === 'object') {
+        var options = file;
+        return function (f) {
+            return traceurifyStream(f, options);
+        };
+    }
 
-        var data = '';
-        var stream = through(write, end);
+    return traceurifyStream(file);
+}
 
-        return stream;
+function traceurifyStream(file, options) {
+    if (!isJavascript(file)) { return through(); }
 
-        function write(buf) {
-            data += buf;
-        }
+    var data = '';
+    var stream = through(write, end);
 
-        function end() {
-            compile(file, data, options, function (error, result) {
-                if (error) {
-                    stream.emit('error', error);
-                }
+    return stream;
 
-                stream.queue(result);
-                stream.queue(null);
-            });
-        }
-    };
+    function write(buf) {
+        data += buf;
+    }
+
+    function end() {
+        compile(file, data, options, function (error, result) {
+            if (error) {
+                stream.emit('error', error);
+            }
+
+            stream.queue(result);
+            stream.queue(null);
+        });
+    }
 }
 
 function isJavascript(file) {
