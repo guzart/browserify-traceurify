@@ -1,3 +1,8 @@
+# Not maintained. Use [es6ify](https://github.com/thlorenz/es6ify)
+
+es6ify is not using traceur as a foundation, so it supports all
+ES6 features supported by traceur.
+
 traceurify
 ==========
 
